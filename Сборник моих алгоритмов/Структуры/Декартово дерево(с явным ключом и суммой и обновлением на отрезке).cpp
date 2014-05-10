@@ -59,12 +59,12 @@ void merge(ll &x,ll left,ll right)
 	else if(!right)	x=left;
 	else if(t[left].prior > t[right].prior)
 	{
-		merge(t[x].rs,t[x].rs,right);
+		merge(t[left].rs,t[left].rs,right);
 		x=left;
 	}
 	else 
 	{
-		merge(t[x].ls,left,t[x].ls);
+		merge(t[right].ls,left,t[right].ls);
 		x=right;
 	}
 	recalc(x);
