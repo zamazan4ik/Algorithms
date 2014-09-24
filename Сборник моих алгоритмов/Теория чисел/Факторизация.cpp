@@ -1,35 +1,17 @@
-#include <iostream>
-#include <vector>
-#include <cmath>
-
-using namespace std;
-typedef long long ll;
-
-ll n,i,kor;
-vector<ll> temp;
+//јлгоритм имеет сложность O(sqrt(N)). ѕринцип работы : провер€ем последовательно все делители числа от 2 до корн€ от числа включительно.≈сли число делитс€ на этот делитель, то делим наше число на него пока оно делитс€, каждый раз занос€ этот делитель в массив.¬ конце у нас может остатьс€ число большее 1 - если чисол простое было, например. ѕоэтому в конце стоит проверка на это.
 
 void faktor()
 {
-    kor=sqrt(n);
-    for(i=2;i<=kor;++i)
+    vector<int> temp;
+    int kor=sqrt(n);
+    for(int i=2;i<=kor;++i)
+    {
         while(n%i == 0)
         {
             temp.push_back(i);
             n/=i;
         }
+    }
     if(n>1)
         temp.push_back(n);
-}
-
-
-int main()
-{
-    //ios_base::sync_with_stdio(0);
-    //freopen("input.txt","r",stdin);
-    //freopen("output.txt","w",stdout);
-    cin>>n;
-    faktor();
-    output();
-    system("pause");
-    return 0;
 }
