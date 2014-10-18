@@ -6,7 +6,7 @@ int bin_search(int size,int key)
     while(first < last)
     {
         mid=first + ((last-first)>>1);
-        if(arr[mid == key)
+        if(arr[mid] == key)
             return mid;
         else if(arr[mid] < key)
             first=mid+1;
